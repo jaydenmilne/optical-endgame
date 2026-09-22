@@ -1,0 +1,14 @@
+<meta name="color-scheme" content="light dark">
+<link rel="alternate" type="application/atom+xml" title="{{ site.title }} updates" href="{{ '/feed.xml' | relative_url }}">
+<script>
+  (function () {
+    var saved;
+    try { saved = localStorage.getItem("olt-color-scheme"); } catch (error) {}
+    var scheme = saved === "light" || saved === "dark"
+      ? saved
+      : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.dataset.theme = scheme;
+    window.oltInitialTheme = scheme;
+  })();
+</script>
+
